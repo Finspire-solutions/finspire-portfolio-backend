@@ -9,6 +9,7 @@ public interface ApplicationConstants {
     public static final String FAILED_TO_DELETE_MENU_ITEM = "Failed to delete menu item";
     public static final String STATUS_NOT_FOUND = "Status Not Found";
     public static final String BLOG_NOT_FOUND = "Blog not found";
+    public static final String PROJECT_DETAILS_NOT_FOUND = "Project details not found";
     public static final String BAD_REQUEST = "Bad Request";
 
 }

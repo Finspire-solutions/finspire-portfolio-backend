@@ -19,7 +19,7 @@ public class Blogs {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Column(name = "content")
+    @Column(name = "content",length = 5000)
     private String content;
     @Column(name = "cover_image")
     private String coverImage; // URL or data URL
