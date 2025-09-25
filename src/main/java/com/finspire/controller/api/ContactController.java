@@ -5,6 +5,7 @@ import com.finspire.controller.dto.ContactRequestDto;
 import com.finspire.entity.Blogs;
 import com.finspire.entity.ContactDetails;
 import com.finspire.service.ContactService;
+import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,20 +22,14 @@ public class ContactController {
     private final ContactService contactService;
     @PostMapping()
     public ResponseEntity<String> saveContactDetails(@RequestPart("file") @Valid MultipartFile file,
-                                                  @RequestPart("blogsRequestDto") ContactRequestDto contactRequestDto) throws IOException {
-        contactService.saveContactDetails(file,contactRequestDto);
+                                                  @RequestPart("blogsRequestDto") ContactRequestDto contactRequestDto) throws IOException, MessagingException {
+        contactService.saveContactDetails(contactRequestDto);
         return ResponseEntity.ok("Successfully saved blog details");
     }
 
     @GetMapping("/getAll")
     public Page<ContactDetails> getAllContacts(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
         return contactService.getAllContacts(page, size);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateContactsDetails(@PathVariable Long id, @RequestPart(value = "file",required = false) MultipartFile file,
-                                                     @RequestPart("blogsRequestDto") ContactRequestDto contactRequestDto) throws IOException {
-        return ResponseEntity.ok(contactService.updateContactsDetails(id, file,contactRequestDto));
     }
 
     @DeleteMapping("/{id}")

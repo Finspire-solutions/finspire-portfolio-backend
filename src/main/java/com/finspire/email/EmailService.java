@@ -1,5 +1,6 @@
 package com.finspire.email;
 
+import com.finspire.controller.dto.ContactRequestDto;
 import com.finspire.entity.User;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -88,4 +89,32 @@ public class EmailService {
         mailSender.send(mimeMessage);
     }
 
+    public void sendContactEmail(ContactRequestDto contactRequestDto) throws MessagingException {
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(
+                mimeMessage,
+                MimeMessageHelper.MULTIPART_MODE_MIXED,
+                StandardCharsets.UTF_8.name()
+        );
+
+        FileSystemResource logo = new FileSystemResource(new File("src/main/resources/images/logo.png"));
+        helper.addInline("logoImage", logo);
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("customerName", contactRequestDto.getFirstName());
+        properties.put("Service", contactRequestDto.getInterestedService());
+        properties.put("PhoneNo", contactRequestDto.getPhoneNo());
+        properties.put("message", contactRequestDto.getMessage());
+
+        Context context = new Context();
+        context.setVariables(properties);
+
+        helper.setFrom("finspire001@gmail.com");
+        helper.setTo(contactRequestDto.getEmail());
+        helper.setSubject("Customer Service Request");
+        String template = templateEngine.process("contact_email", context);
+        helper.setText(template, true);
+
+        mailSender.send(mimeMessage);
+    }
 }

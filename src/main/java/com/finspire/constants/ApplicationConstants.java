@@ -2,6 +2,7 @@ package com.finspire.constants;
 
 public interface ApplicationConstants {
     public static final String ROLE_NOT_FOUND = "Role Not Found";
+    public static final String CONTACT_DETAILS_NOT_FOUND = "Contact details Not Found";
     public static final String EMAIL_NOT_FOUND = "Email Not Found";
     public static final String FLOOR_DETAILS_NOT_SAVED = "Floor details not saved";
     public static final String FLOOR_DETAILS_NOT_FOUND = "Floor details not found";

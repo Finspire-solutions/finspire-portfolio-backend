@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ContactConverter {
-    public ContactDetails convert(ContactRequestDto contactRequestDto,String url){
+    public ContactDetails convert(ContactRequestDto contactRequestDto){
         return ContactDetails.builder()
                 .firstName(contactRequestDto.getFirstName())
                 .lastName(contactRequestDto.getLastName())
