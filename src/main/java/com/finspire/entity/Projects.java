@@ -1,6 +1,7 @@
 package com.finspire.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -20,7 +21,7 @@ public class Projects {
         private String title;
         @Column(name = "category")
         private String category;
-        @Column(name = "description")
+        @Column(name = "description",length = 500)
         private String description;
         @Column(name = "technologies")
         private String technologies;

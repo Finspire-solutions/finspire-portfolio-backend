@@ -23,7 +23,7 @@ public class ProjectsController {
 
     @PostMapping()
     public ResponseEntity<String> saveProjectDetails(@RequestPart("file") @Valid MultipartFile file,
-                                                  @RequestPart("projectsRequestDto") ProjectsRequestDto projectsRequestDto) throws IOException {
+                                                  @RequestPart("projectsRequestDto") @Valid ProjectsRequestDto projectsRequestDto) throws IOException {
         projectsService.saveProjectDetails(file,projectsRequestDto);
         return ResponseEntity.ok("Successfully saved project details");
     }
