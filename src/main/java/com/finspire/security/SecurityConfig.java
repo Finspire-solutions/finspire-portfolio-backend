@@ -31,7 +31,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:*","https://finspire-portfolio-frontend.onrender.com")); // Allow localhost with any port
+        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:*","https://finspiresolutions-three.vercel.app")); // Allow localhost with any port
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
