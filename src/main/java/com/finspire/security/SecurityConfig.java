@@ -60,6 +60,7 @@ public class SecurityConfig {
                                         "/swagger-ui.html",
                                         "/blogs/**",
                                         "/projects/**",
+                                        "/contact/**",
                                         "/app/**"
                                 ).permitAll()
                                 .anyRequest()
