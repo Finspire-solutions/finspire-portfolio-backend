@@ -1,19 +1,13 @@
 package com.finspire.controller.api;
 
-import com.finspire.controller.dto.BlogsRequestDto;
 import com.finspire.controller.dto.ContactRequestDto;
-import com.finspire.entity.Blogs;
 import com.finspire.entity.ContactDetails;
 import com.finspire.service.ContactService;
 import jakarta.mail.MessagingException;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,8 +15,7 @@ import java.io.IOException;
 public class ContactController {
     private final ContactService contactService;
     @PostMapping()
-    public ResponseEntity<String> saveContactDetails(@RequestPart("file") @Valid MultipartFile file,
-                                                  @RequestPart("blogsRequestDto") ContactRequestDto contactRequestDto) throws IOException, MessagingException {
+    public ResponseEntity<String> saveContactDetails(@RequestBody() ContactRequestDto contactRequestDto) throws MessagingException {
         contactService.saveContactDetails(contactRequestDto);
         return ResponseEntity.ok("Successfully saved blog details");
     }

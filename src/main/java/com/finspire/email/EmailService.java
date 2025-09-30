@@ -70,7 +70,7 @@ public class EmailService {
                 StandardCharsets.UTF_8.name()
         );
 
-        FileSystemResource logo = new FileSystemResource(new File("src/main/resources/images/logo.png"));
+        FileSystemResource logo = new FileSystemResource(new File("src/main/resources/images/finspire.png"));
         helper.addInline("logoImage", logo);
 
         Map<String, Object> properties = new HashMap<>();
@@ -97,7 +97,7 @@ public class EmailService {
                 StandardCharsets.UTF_8.name()
         );
 
-        FileSystemResource logo = new FileSystemResource(new File("src/main/resources/images/logo.png"));
+        FileSystemResource logo = new FileSystemResource(new File("src/main/resources/images/finspire.png"));
         helper.addInline("logoImage", logo);
 
         Map<String, Object> properties = new HashMap<>();
