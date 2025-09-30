@@ -58,7 +58,8 @@ public class SecurityConfig {
                                         "/swagger-ui/**",
                                         "/webjars/**",
                                         "/swagger-ui.html",
-                                        "/ws/**",           // Allow WebSocket endpoints
+                                        "/blogs/**",
+                                        "/projects/**",
                                         "/app/**"
                                 ).permitAll()
                                 .anyRequest()
