@@ -27,6 +27,14 @@ public class Blogs {
     private String tags;
     @Column(name = "created_at")
     private LocalDate createdAt;
+    @Column(name = "instagram_link")
+    private String instagramLink;
+    @Column(name = "facebook_link")
+    private String facebookLink;
+    @Column(name = "linkedin_link")
+    private String linkedinLink;
+    @Column(name = "github_link")
+    private String githubLink;
 
     @PrePersist
     public void createDate(){

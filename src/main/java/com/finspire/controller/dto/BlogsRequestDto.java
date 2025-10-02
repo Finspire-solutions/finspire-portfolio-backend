@@ -19,4 +19,8 @@ public class BlogsRequestDto {
     private String content;
     @NotNull(message = "tags can't be null")
     private List<String> tags;
+    private String instagramLink;
+    private String facebookLink;
+    private String linkedinLink;
+    private String githubLink;
 }
